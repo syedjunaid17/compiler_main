@@ -1,0 +1,22 @@
+%{
+#include <stdio.h>
+int charct=0;
+%}
+
+%%
+[a-zA-Z]+ { if(yytext[0]=='a'){
+	charct++;} }
+%%
+
+int yywrap()
+{
+	return 1;
+}
+
+int main()
+{
+	yyin=fopen("atext.txt","r");
+	yylex();
+	printf("string starts with a: %d\n",charct);
+	return 0;
+}

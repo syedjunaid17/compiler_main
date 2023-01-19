@@ -1,0 +1,17 @@
+%{
+int iden=0;int cons=0;int in_iden=0;
+%}
+
+%%
+^[a-zA-Z_][a-zA-Z0-9_]* {iden++;}
+[0-9]+ {cons++;}
+[0-9]+[a-zA-Z_] {in_iden++;}
+%%
+
+int main()
+{
+	printf("enter detail:");
+	yylex();
+	printf("identifiers=%d\n constants=%d\n invalid_identifiers=%d\n",iden,cons,in_iden);
+	return 0;
+}

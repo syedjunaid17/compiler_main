@@ -1,0 +1,16 @@
+%{
+int flag=0;
+%}
+%%
+[a-z.A-Z.0-9]+@[a-z]+".com"|".in" {flag=1;}
+%%
+int main(){
+	printf("enter ur mail id");
+	yylex();
+	if(flag==1){
+		printf("email is valid\n");
+	}
+	else
+		printf("email is invalid\n");
+	return 0;
+}

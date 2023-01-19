@@ -1,0 +1,24 @@
+%{
+int vowelcount=0,consonantcount=0;
+%}
+
+%%
+\n return 0;
+[\t]+;
+[aeiou] {vowelcount++;}
+[^aeiou] {consonantcount++;}
+%%
+
+int main(void)
+{
+	printf("\n enter any string:");
+	yylex();
+	printf("Vowels: %d\n Consonants: %d\n",vowelcount,consonantcount);
+	return 0;
+}
+
+int yywrap()
+{
+	return 1;
+}
+

@@ -1,0 +1,20 @@
+%{
+int pos_no=0,neg_no=0;
+%}
+
+%%
+q {return 0;}
+^[-][0-9]+ {neg_no++;}
+[0-9]+ {pos_no++;}
+%%
+int yywrap()
+{
+	return 1;
+}
+int main()
+{
+	printf("enter q to quit\n");
+	yylex();
+	printf("+ve numbers= %d\n -ve numbers= %d\n",pos_no,neg_no);
+	return 0;
+}

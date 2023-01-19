@@ -1,0 +1,6 @@
+%{
+%}
+%%
+welcome{printf("Hello This is a simple program");}
+%%
+
